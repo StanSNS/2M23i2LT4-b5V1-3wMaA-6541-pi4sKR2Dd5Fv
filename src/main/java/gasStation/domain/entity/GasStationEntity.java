@@ -1,4 +1,4 @@
-package com.example.gasstations.domain.entity;
+package gasStation.domain.entity;
 
 
 import jakarta.persistence.Column;

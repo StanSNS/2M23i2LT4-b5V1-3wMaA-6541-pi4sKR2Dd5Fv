@@ -1,7 +1,7 @@
 package utilTest;
 
-import com.example.gasstations.domain.JSON.GasStationJSON;
-import com.example.gasstations.util.ValidationUtil;
+import gasStation.domain.JSON.GasStationJSON;
+import gasStation.util.ValidationUtil;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

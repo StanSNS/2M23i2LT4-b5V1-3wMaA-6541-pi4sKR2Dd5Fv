@@ -1,4 +1,4 @@
-package com.example.gasstations.util;
+package gasStation.util;
 
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;

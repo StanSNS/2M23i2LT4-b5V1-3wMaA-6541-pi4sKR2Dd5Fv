@@ -1,4 +1,4 @@
-package com.example.gasstations.config;
+package gasStation.config;
 
 import com.google.gson.Gson;
 import org.modelmapper.ModelMapper;

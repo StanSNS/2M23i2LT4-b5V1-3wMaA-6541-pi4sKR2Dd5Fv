@@ -1,4 +1,4 @@
-package com.example.gasstations.domain.JSON;
+package gasStation.domain.JSON;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,7 +11,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class GasStationDataJSON {
+public class GasStationWrapperJSON {
 
     private List<GasStationJSON> stations;
 

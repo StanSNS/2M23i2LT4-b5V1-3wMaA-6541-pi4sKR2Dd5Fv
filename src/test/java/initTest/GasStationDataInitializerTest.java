@@ -1,12 +1,12 @@
 package initTest;
 
-import com.example.gasstations.domain.JSON.GasStationDataJSON;
-import com.example.gasstations.domain.JSON.GasStationJSON;
-import com.example.gasstations.domain.entity.GasStationEntity;
-import com.example.gasstations.init.GasStationDataInitializer;
-import com.example.gasstations.repository.GasStationEntityRepository;
-import com.example.gasstations.util.ValidationUtil;
 import com.google.gson.Gson;
+import gasStation.domain.JSON.GasStationJSON;
+import gasStation.domain.JSON.GasStationWrapperJSON;
+import gasStation.domain.entity.GasStationEntity;
+import gasStation.init.GasStationDataInitializer;
+import gasStation.repository.GasStationEntityRepository;
+import gasStation.util.ValidationUtil;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -39,10 +39,10 @@ class GasStationDataInitializerTest {
     void initializeGasStations_InvalidData() throws IOException {
         when(gasStationEntityRepository.count()).thenReturn(0L);
 
-        GasStationDataJSON gasStationData = new GasStationDataJSON();
+        GasStationWrapperJSON gasStationData = new GasStationWrapperJSON();
         gasStationData.setStations(List.of(new GasStationJSON()));
 
-        when(gson.fromJson(any(String.class), eq(GasStationDataJSON.class))).thenReturn(gasStationData);
+        when(gson.fromJson(any(String.class), eq(GasStationWrapperJSON.class))).thenReturn(gasStationData);
         when(validationUtil.isValid(any(GasStationJSON.class))).thenReturn(false);
 
         initializer.initializeGasStations();

@@ -1,4 +1,4 @@
-package com.example.gasstations;
+package gasStation;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

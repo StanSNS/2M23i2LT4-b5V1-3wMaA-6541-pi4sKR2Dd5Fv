@@ -1,4 +1,4 @@
-package com.example.gasstations.domain.JSON;
+package gasStation.domain.dto;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
@@ -6,7 +6,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class GasStationJSON {
+public class GasStationDTO {
+
 
     @NotNull
     private String id;
@@ -49,5 +50,5 @@ public class GasStationJSON {
 
     @NotNull
     private int postCode;
-}
 
+}

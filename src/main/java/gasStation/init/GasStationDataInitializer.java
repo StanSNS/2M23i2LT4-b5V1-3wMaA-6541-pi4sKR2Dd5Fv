@@ -1,11 +1,11 @@
-package com.example.gasstations.init;
+package gasStation.init;
 
-import com.example.gasstations.repository.GasStationEntityRepository;
-import com.example.gasstations.domain.JSON.GasStationDataJSON;
-import com.example.gasstations.domain.JSON.GasStationJSON;
-import com.example.gasstations.domain.entity.GasStationEntity;
-import com.example.gasstations.util.ValidationUtil;
 import com.google.gson.Gson;
+import gasStation.domain.JSON.GasStationJSON;
+import gasStation.domain.JSON.GasStationWrapperJSON;
+import gasStation.domain.entity.GasStationEntity;
+import gasStation.repository.GasStationEntityRepository;
+import gasStation.util.ValidationUtil;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 
-import static com.example.gasstations.constants.GasStationConst.GAS_STATION_DATA_URL;
+import static gasStation.constants.GasStationConst.GAS_STATION_DATA_URL;
 
 @Component
 @RequiredArgsConstructor
@@ -31,10 +31,11 @@ public class GasStationDataInitializer {
     private final ValidationUtil validationUtil;
 
 
+
     /**
      * Initializes gas station data by reading JSON from a specified URL, converting it into domain objects,
      * and saving valid gas stations to the database.
-
+     * <p>
      * This method is annotated with {@code @PostConstruct}, ensuring it is executed after the bean is created.
      *
      * @throws IOException if there's an issue reading JSON from the URL.
@@ -45,7 +46,7 @@ public class GasStationDataInitializer {
         if (gasStationEntityRepository.count() == 0) {
 
             String jsonContent = readJsonFromUrl();
-            GasStationDataJSON gasStationData = gson.fromJson(jsonContent, GasStationDataJSON.class);
+            GasStationWrapperJSON gasStationData = gson.fromJson(jsonContent, GasStationWrapperJSON.class);
 
             for (GasStationJSON station : gasStationData.getStations()) {
                 if (validationUtil.isValid(station)) {
@@ -59,7 +60,6 @@ public class GasStationDataInitializer {
             }
 
         }
-
     }
 
     /**
